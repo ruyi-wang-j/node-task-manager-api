@@ -132,7 +132,7 @@ userSchema.pre('save', async function(next){
 // 加上後可確保middleware可以正確地access document中的數據
 userSchema.pre('deleteOne', {document: true}, async function(next){
     const user = this;
-    console.log('UserSchema this with doc true: ',this);
+    // console.log('UserSchema this with doc true: ',this);
     await Task.deleteMany({owner: user._id});
     next();
 })
